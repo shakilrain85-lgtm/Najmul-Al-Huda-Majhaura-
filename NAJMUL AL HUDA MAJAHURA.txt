@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Najm Al Huda Majhaura | نجم الہدیٰ مجہورا</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins","Segoe UI",sans-serif;
+    color:white;
+    background:#01050d;
+    overflow-x:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+/* =========================
+   SKY
+========================= */
+
+.sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+
+    background:
+    radial-gradient(
+        circle at 50% 15%,
+        #244f7d,
+        #102942 30%,
+        #06111f 55%,
+        #01050d 85%,
+        #000
+    );
+}
+
+/* =========================
+   MOON
+========================= */
+
+.moon{
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    right:6%;
+    top:25px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 18px white,
+        0 0 50px #bdeeff,
+        0 0 90px #46cfff;
+
+    animation:moonGlow 4s infinite alternate;
+}
+
+@keyframes moonGlow{
+
+    from{
+        box-shadow:
+        0 0 18px white,
+        0 0 50px #bdeeff;
+    }
+
+    to{
+        box-shadow:
+        0 0 28px white,
+        0 0 75px #87cefa,
+        0 0 120px #2196ff;
+    }
+}
+
+/* =========================
+   STARS
+========================= */
+
+.star{
+    position:absolute;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px #4fdcff;
+
+    animation:
+        twinkle 2s infinite alternate,
+        falling linear infinite;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+@keyframes falling{
+
+    from{
+        transform:translateY(-80px);
+    }
+
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+/* =========================
+   LANDING
+========================= */
+
+#landing{
+
+    min-height:100vh;
+
+    position:relative;
+    z-index:5;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px 12px;
+
+    transition:1s;
+}
+
+.welcome{
+
+    font-size:clamp(34px,11vw,70px);
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    line-height:1.2;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #00eaff,
+        0 0 55px #00eaff;
+
+    animation:welcomeGlow 3s infinite alternate;
+}
+
+@keyframes welcomeGlow{
+
+    from{
+        filter:hue-rotate(0deg);
+    }
+
+    to{
+        filter:hue-rotate(80deg);
+    }
+}
+
+.main-title{
+
+    margin-top:12px;
+
+    font-size:clamp(23px,7vw,48px);
+
+    color:#ffd700;
+
+    font-weight:800;
+
+    line-height:1.3;
+
+    text-shadow:
+        0 0 12px gold,
+        0 0 30px orange;
+}
+
+.urdu-title{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    font-size:28px;
+
+    line-height:2;
+
+    color:#7fffd4;
+
+    text-shadow:
+        0 0 12px #00ffc8;
+}
+
+.roman-title{
+
+    margin-top:4px;
+
+    color:#ddd;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    max-width:330px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area{
+
+    margin-top:22px;
+
+    width:100%;
+    max-width:430px;
+}
+
+.search-title{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    font-size:19px;
+
+    line-height:2;
+
+    color:#7fffd4;
+
+    margin-bottom:3px;
+}
+
+.search-roman{
+
+    color:#ddd;
+
+    font-size:11px;
+
+    margin-bottom:8px;
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:5px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.11);
+
+    border:
+        1px solid
+        rgba(255,255,255,.3);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 15px rgba(0,220,255,.18);
+}
+
+.search-box input{
+
+    flex:1;
+
+    min-width:0;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    padding:11px 12px;
+
+    font-size:13px;
+}
+
+.search-box input::placeholder{
+    color:#cfd8dc;
+}
+
+.search-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:11px 15px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    background:
+        linear-gradient(
+            90deg,
+            #006b55,
+            #00c58b,
+            #006b55
+        );
+
+    box-shadow:
+        0 0 12px #00ffae;
+
+    transition:.3s;
+}
+
+.search-btn:active{
+    transform:scale(.95);
+}
+
+/* =========================
+   RESULT
+========================= */
+
+#result{
+
+    display:none;
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:18px 12px;
+
+    border-radius:20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,210,.15),
+            rgba(80,50,255,.18),
+            rgba(255,215,0,.10)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.3);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 0 20px rgba(0,220,255,.25);
+
+    animation:resultAppear .7s ease;
+}
+
+@keyframes resultAppear{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.result-small{
+    color:#7fffd4;
+    font-size:12px;
+}
+
+.result-name{
+
+    margin:5px 0;
+
+    font-size:clamp(25px,8vw,42px);
+
+    color:#ffd700;
+
+    font-weight:800;
+
+    word-break:break-word;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 25px orange;
+}
+
+.result-urdu{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    font-size:19px;
+
+    line-height:2.2;
+
+    color:#fff;
+}
+
+.result-roman{
+
+    margin-top:4px;
+
+    color:#ddd;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+.result-message{
+
+    margin-top:7px;
+
+    line-height:1.7;
+
+    color:#eee;
+
+    font-size:12px;
+}
+
+/* =========================
+   DOOR
+========================= */
+
+.door-area{
+
+    margin-top:22px;
+
+    perspective:1000px;
+}
+
+.door{
+
+    width:175px;
+    height:260px;
+
+    display:flex;
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(0 0 15px gold)
+        drop-shadow(
+            0 0 35px
+            rgba(255,215,0,.35)
+        );
+}
+
+.door-left,
+.door-right{
+
+    width:50%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff2a0,
+            #ffd700,
+            #9a6500,
+            #ffd700
+        );
+
+    border:
+        2px solid #ffe76b;
+
+    transition:
+        transform
+        2s
+        cubic-bezier(.77,0,.18,1);
+}
+
+.door-left{
+
+    transform-origin:left center;
+
+    border-radius:
+        90px 0
+        8px 8px;
+}
+
+.door-right{
+
+    transform-origin:right center;
+
+    border-radius:
+        0 90px
+        8px 8px;
+}
+
+.door.open .door-left{
+    transform:rotateY(-125deg);
+}
+
+.door.open .door-right{
+    transform:rotateY(125deg);
+}
+
+.door-left::after,
+.door-right::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    top:42%;
+    left:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    font-size:42px;
+
+    color:white;
+
+    text-shadow:
+        0 0 12px white,
+        0 0 25px gold;
+}
+
+/* =========================
+   PORTAL BUTTON
+========================= */
+
+.portal-btn{
+
+    padding:12px 23px;
+
+    font-size:13px;
+
+    margin-top:15px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+#content{
+
+    display:none;
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:auto;
+
+    padding:28px 10px;
+}
+
+.card{
+
+    width:100%;
+
+    padding:18px 13px;
+
+    margin-bottom:14px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,220,255,.08);
+
+    line-height:1.8;
+}
+
+.urdu-card{
+
+    direction:rtl;
+
+    text-align:right;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    line-height:2.5;
+}
+
+.urdu-card h2{
+
+    color:#ffd700;
+
+    margin-bottom:8px;
+
+    font-size:19px;
+
+    line-height:2;
+}
+
+.urdu-card p{
+
+    font-size:15px;
+
+    margin:5px 0;
+}
+
+.urdu-card h3{
+
+    color:#ffd700;
+
+    font-size:18px;
+
+    margin-top:10px;
+}
+
+.roman-content{
+
+    direction:ltr;
+
+    text-align:left;
+
+    font-family:
+        "Poppins",
+        "Segoe UI",
+        sans-serif;
+
+    color:#eeeeee;
+
+    line-height:1.7;
+
+    margin-top:17px;
+
+    padding-top:15px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.13);
+}
+
+.roman-content h2{
+
+    color:#00eaff;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    margin-bottom:8px;
+}
+
+.roman-content p{
+
+    font-size:12px;
+
+    margin:6px 0;
+}
+
+.roman-content h3{
+
+    color:#ffd700;
+
+    font-size:16px;
+
+    margin-top:10px;
+}
+
+.bismillah{
+
+    direction:rtl;
+
+    text-align:center;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    font-size:25px;
+
+    line-height:2;
+
+    color:#7fffd4;
+
+    margin-bottom:12px;
+
+    text-shadow:
+        0 0 12px #00ffc8;
+}
+
+/* =========================
+   FUTURE REPORT
+========================= */
+
+.future-report{
+
+    width:100%;
+
+    margin:18px auto;
+
+    padding:16px 10px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,200,.08),
+            rgba(80,50,255,.12),
+            rgba(255,215,0,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,220,255,.12);
+}
+
+.future-icon{
+
+    font-size:25px;
+
+    margin-bottom:2px;
+}
+
+.future-title{
+
+    color:#00eaff;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    line-height:1.4;
+
+    text-shadow:
+        0 0 10px #00eaff;
+}
+
+.future-urdu{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    color:#ffd700;
+
+    font-size:16px;
+
+    line-height:2;
+
+    margin-top:2px;
+}
+
+.future-roman{
+
+    color:#ddd;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    margin-top:2px;
+}
+
+.report-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:6px;
+
+    margin-top:12px;
+}
+
+.report-box{
+
+    min-width:0;
+
+    padding:9px 3px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+}
+
+.report-box span{
+
+    display:block;
+
+    font-size:18px;
+}
+
+.report-box strong{
+
+    display:block;
+
+    font-size:20px;
+
+    color:#ffd700;
+
+    margin:2px 0;
+
+    line-height:1.2;
+}
+
+.report-box small{
+
+    display:block;
+
+    color:#ccc;
+
+    font-size:8px;
+
+    line-height:1.2;
+}
+
+.future-note{
+
+    margin-top:10px;
+
+    padding:7px 6px;
+
+    border-radius:9px;
+
+    color:#7fffd4;
+
+    background:
+        rgba(0,255,200,.05);
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+/* =========================
+   DUA
+========================= */
+
+.dua{
+
+    border-left:
+        4px solid gold;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,215,0,.10);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:28px 10px 35px;
+}
+
+.roman-footer{
+
+    font-family:"Poppins",sans-serif;
+
+    color:#00eaff;
+
+    font-size:12px;
+}
+
+.urdu-footer{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    color:#ffd700;
+
+    font-size:20px;
+
+    margin-top:5px;
+}
+
+/* =========================
+   TEST NOTICE
+========================= */
+
+.test-notice{
+
+    margin-top:12px;
+
+    padding:9px 8px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,215,0,.07);
+
+    border:
+        1px solid
+        rgba(255,215,0,.2);
+
+    color:#ffd700;
+
+    font-size:10px;
+
+    line-height:1.6;
+}
+
+.test-notice-urdu{
+
+    direction:rtl;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Jameel Noori Nastaleeq",
+        serif;
+
+    font-size:15px;
+
+    line-height:2;
+}
+
+/* =========================
+   CLICK LIGHT
+========================= */
+
+.click-light{
+
+    position:fixed;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    animation:
+        explosion
+        1s
+        ease-out
+        forwards;
+}
+
+@keyframes explosion{
+
+    0%{
+        transform:scale(.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(14);
+        opacity:0;
+
+        box-shadow:
+            0 0 30px currentColor,
+            0 0 70px currentColor,
+            0 0 130px currentColor;
+    }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+    #landing{
+        padding:15px 8px;
+    }
+
+    .welcome{
+        font-size:32px;
+    }
+
+    .main-title{
+        font-size:22px;
+    }
+
+    .urdu-title{
+        font-size:26px;
+    }
+
+    .roman-title{
+        font-size:11px;
+    }
+
+    .search-area{
+        margin-top:17px;
+    }
+
+    .door{
+        width:160px;
+        height:240px;
+    }
+
+    .portal-btn{
+        padding:11px 20px;
+        font-size:12px;
+    }
+
+    #content{
+        padding:22px 8px;
+    }
+
+    .card{
+        padding:15px 11px;
+        border-radius:16px;
+    }
+
+    .urdu-card h2{
+        font-size:18px;
+    }
+
+    .urdu-card p{
+        font-size:14px;
+    }
+
+    .roman-content h2{
+        font-size:16px;
+    }
+
+    .roman-content p{
+        font-size:11px;
+    }
+
+    .future-report{
+        padding:14px 7px;
+    }
+
+    .future-title{
+        font-size:17px;
+    }
+
+    .future-urdu{
+        font-size:15px;
+    }
+
+    .report-box strong{
+        font-size:18px;
+    }
+
+    .report-box span{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     SKY
+========================= -->
+
+<div class="sky" id="sky">
+
+    <div class="moon"></div>
+
+</div>
+
+
+<!-- =========================
+     LANDING
+========================= -->
+
+<section id="landing">
+
+    <div class="welcome">
+        ✨ WELCOME ✨
+    </div>
+
+    <div class="main-title">
+        Najm Al Huda Majhaura
+    </div>
+
+    <div class="urdu-title">
+        نجم الہدیٰ مجہورا
+    </div>
+
+    <div class="roman-title">
+
+        🌿 Gaon, Masjid, Madaris Aur Bachchon Ke Behtar Mustaqbil Ke Liye
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <div class="search-title">
+            🔎 اپنا نام تلاش کریں
+        </div>
+
+        <div class="search-roman">
+            🔎 Apna Naam Talash Karein
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="nameInput"
+                placeholder="Apna Naam Likhiye..."
+                autocomplete="off"
+            >
+
+            <button
+                class="search-btn"
+                onclick="searchName()"
+            >
+                🔍 Search
+            </button>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="result">
+
+            <div class="result-small">
+                ✨ Khush Aamdeed ✨
+            </div>
+
+            <div
+                class="result-name"
+                id="resultName">
+            </div>
+
+            <div class="result-urdu">
+                آپ کو نجم الہدیٰ مجہورا میں خوش آمدید
+            </div>
+
+            <div class="result-roman">
+                Aapko Najm Al Huda Majhaura mein Khush Aamdeed
+            </div>
+
+            <div class="result-message">
+
+                Aapki tashreef aawari hamare liye khushi ka baais hai.
+                Allah Ta'ala hamare gaon ko aman, ilm, ittihad aur
+                behtari ata farmaye. 🤲
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DOOR -->
+
+    <div class="door-area">
+
+        <div
+            class="door"
+            id="door"
+            onclick="openPortal()"
+        >
+
+            <div class="door-left"></div>
+            <div class="door-right"></div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="search-btn portal-btn"
+        onclick="openPortal()"
+    >
+
+        🌙 Portal Kholein
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<section id="content">
+
+
+    <!-- INTRO -->
+
+    <div class="card">
+
+        <div class="bismillah">
+
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+
+        </div>
+
+        <div class="urdu-card">
+
+            <h2>
+                🌿 گاؤں، مسجد، مدارس اور بچوں کے بہتر مستقبل کے لیے مشترکہ کوشش
+            </h2>
+
+            <p>
+                السلام علیکم ورحمۃ اللہ وبرکاتہ
+            </p>
+
+            <p>
+                ہمارے پیارے گاؤں کے بزرگوں، نوجوان بھائیوں اور تمام ذمہ دار افراد!
+            </p>
+
+            <p>
+                الحمدللہ، ہمارے گاؤں کی بہتری کے لیے مسجد، مدارس،
+                بچوں کی تعلیم، زمین، دیکھ بھال، ماہانہ تعاون اور
+                حساب کتاب کے حوالے سے کئی اہم باتیں ہوئی ہیں۔
+            </p>
+
+        </div>
+
+
+        <div class="roman-content">
+
+            <h2>
+                🌿 Gaon, Masjid, Madaris Aur Bachchon Ke Behtar Mustaqbil Ke Liye Mushtarka Koshish
+            </h2>
+
+            <p>
+                Assalamu Alaikum wa Rahmatullahi wa Barakatuh
+            </p>
+
+            <p>
+                Hamare pyare gaon ke buzurgon, naujawan bhaiyon aur tamam zimmedar afraad!
+            </p>
+
+            <p>
+                Alhamdulillah, hamare gaon ki behtari ke liye masjid,
+                madaris, bachchon ki taleem, zameen, dekh-bhaal,
+                maahana ta'awun aur hisaab-kitaab ke hawale se kai aham baatein hui hain.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROGRAM -->
+
+    <div class="card">
+
+        <div class="urdu-card">
+
+            <h2>
+                📅 گروپ کا پروگرام
+            </h2>
+
+            <p>
+                📌 <strong>01/10/2026 | آزمائشی گروپ</strong>
+            </p>
+
+            <p>
+                اس دن حال چال اور عام گفتگو ہوگی۔
+            </p>
+
+            <p>
+                📌 <strong>08/10/2026 | اہم گفتگو</strong>
+            </p>
+
+            <p>
+                ان شاء اللہ سنجیدہ گفتگو شروع ہوگی۔
+            </p>
+
+        </div>
+
+
+        <div class="roman-content">
+
+            <h2>
+                📅 Group Ka Program
+            </h2>
+
+            <p>
+                📌 <strong>01/10/2026 | Aazmaishi Group</strong>
+            </p>
+
+            <p>
+                Is din haal-chaal aur aam guftagu hogi.
+            </p>
+
+            <p>
+                📌 <strong>08/10/2026 | Aham Guftagu</strong>
+            </p>
+
+            <p>
+                InshaAllah sanjeeda guftagu shuru hogi.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FUTURE REPORT -->
+
+    <div class="future-report">
+
+        <div class="future-icon">
+            📊
+        </div>
+
+        <div class="future-title">
+            Future Report System
+        </div>
+
+        <div class="future-urdu">
+            مستقبل میں پورٹل کے استعمال کی مکمل رپورٹ
+        </div>
+
+        <div class="future-roman">
+            Mustaqbil mein portal ke istemal ki mukammal report yahan dekhi ja sakegi.
+        </div>
+
+        <div class="report-grid">
+
+            <div class="report-box">
+
+                <span>👥</span>
+
+                <strong id="totalUsers">
+                    0
+                </strong>
+
+                <small>
+                    Total Users
+                </small>
+
+            </div>
+
+
+            <div class="report-box">
+
+                <span>🔎</span>
+
+                <strong id="totalSearches">
+                    0
+                </strong>
+
+                <small>
+                    Name Searches
+                </small>
+
+            </div>
+
+
+            <div class="report-box">
+
+                <span>⏱️</span>
+
+                <strong id="oneHourUsers">
+                    0
+                </strong>
+
+                <small>
+                    Last 1 Hour
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="future-note">
+
+            🚀 Future Update:
+            Database • Daily Report • Weekly Report • Monthly Report • Admin Dashboard
+
+        </div>
+
+    </div>
+
+
+    <!-- TOPICS -->
+
+    <div class="card">
+
+        <div class="urdu-card">
+
+            <h2>
+                📝 گروپ میں گفتگو کے اہم موضوعات
+            </h2>
+
+            <p>1️⃣ پچھلی بیٹھکوں کے فیصلوں پر عمل۔</p>
+            <p>2️⃣ مسجد اور مدارس کی دیکھ بھال۔</p>
+            <p>3️⃣ زمین اور دستاویزات کی حالت۔</p>
+            <p>4️⃣ بچوں کی دینی اور دنیاوی تعلیم۔</p>
+            <p>5️⃣ ماہانہ تعاون اور بینک اکاؤنٹ۔</p>
+            <p>6️⃣ جمع اور خرچ کا حساب۔</p>
+            <p>7️⃣ باقی کاموں کی وجہ اور حل۔</p>
+            <p>8️⃣ اگلی بیٹھک اور ذمہ داریاں۔</p>
+
+        </div>
+
+
+        <div class="roman-content">
+
+            <h2>
+                📝 Group Mein Guftagu Ke Aham Mauzuat
+            </h2>
+
+            <p>1️⃣ Pichhli baithakon ke faislon par amal.</p>
+            <p>2️⃣ Masjid aur Madaris ki dekh-bhaal.</p>
+            <p>3️⃣ Zameen aur dastavezat ki haalat.</p>
+            <p>4️⃣ Bachchon ki Deeni aur duniyawi taleem.</p>
+            <p>5️⃣ Maahana ta'awun aur bank account.</p>
+            <p>6️⃣ Jama aur kharch ka hisaab.</p>
+            <p>7️⃣ Baaqi kaamon ki wajah aur hal.</p>
+            <p>8️⃣ Agli baithak aur zimmedariyan.</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADAAB -->
+
+    <div class="card">
+
+        <div class="urdu-card">
+
+            <h2>
+                🤝 گروپ کے آداب
+            </h2>
+
+            <p>
+                یہ گروپ صرف مسجد، مدارس، تعلیم اور گاؤں کی بہتری کے لیے ہے۔
+            </p>
+
+            <p>
+                ہر شخص کو ادب اور عزت کے ساتھ اپنی بات رکھنے کا موقع دیا جائے گا۔
+            </p>
+
+        </div>
+
+
+        <div class="roman-content">
+
+            <h2>
+                🤝 Group Ke Adaab
+            </h2>
+
+            <p>
+                Ye group sirf masjid, madaris, taleem aur gaon ki behtari ke liye hai.
+            </p>
+
+            <p>
+                Har shakhs ko adab aur izzat ke saath apni baat rakhne ka mauqa diya jayega.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DUA -->
+
+    <div class="card dua">
+
+        <div class="urdu-card">
+
+            <h2>
+                🤲 دعا
+            </h2>
+
+            <p>
+                یا اللہ! ہماری نیتوں کو خالص فرما،
+                ہمیں امانت داری، انصاف اور اچھے اخلاق کے ساتھ
+                کام کرنے کی توفیق عطا فرما۔
+            </p>
+
+            <p>
+                ہمارے گاؤں، مسجد، مدارس اور بچوں کے مستقبل کو بہتر فرما۔
+            </p>
+
+            <h3>
+                آمین یا رب العالمین 🤲
+            </h3>
+
+        </div>
+
+
+        <div class="roman-content">
+
+            <h2>
+                🤲 Dua
+            </h2>
+
+            <p>
+                Ya Allah! Hamari niyyaton ko khalis farma,
+                humein amanat-dari, insaaf aur achhe akhlaaq
+                ke saath kaam karne ki taufeeq ata farma.
+            </p>
+
+            <p>
+                Hamare gaon, masjid, madaris aur bachchon ke
+                mustaqbil ko behtar farma.
+            </p>
+
+            <h3>
+                Aameen Ya Rabbal Aalameen 🤲
+            </h3>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <div class="roman-footer">
+            🌙 Najm Al Huda Majhaura Community Portal 🕌
+        </div>
+
+        <div class="urdu-footer">
+            نجم الہدیٰ مجہورا
+        </div>
+
+
+        <!-- TEST NOTICE -->
+
+        <div class="test-notice">
+
+            <div class="test-notice-urdu">
+
+                یہ پورٹل فی الحال ٹیسٹ کے لیے بنایا گیا ہے۔
+
+            </div>
+
+            <div>
+
+                Ye portal filhaal test ke liye banaya gaya hai.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<script>
+
+/* =========================
+   STARS
+========================= */
+
+const sky =
+document.getElementById("sky");
+
+for(let i=0;i<150;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    const size =
+        1 + Math.random()*2.5;
+
+    star.style.width =
+        size+"px";
+
+    star.style.height =
+        size+"px";
+
+    star.style.animationDuration =
+        (2+Math.random()*6)+"s";
+
+    star.style.animationDelay =
+        Math.random()*6+"s";
+
+    sky.appendChild(star);
+}
+
+
+/* =========================
+   REPORT SYSTEM
+========================= */
+
+let totalUsers =
+parseInt(
+    localStorage.getItem("najmTotalUsers") || "0"
+);
+
+let totalSearches =
+parseInt(
+    localStorage.getItem("najmTotalSearches") || "0"
+);
+
+let visitHistory =
+JSON.parse(
+    localStorage.getItem("najmVisitHistory") || "[]"
+);
+
+
+/* USER VISIT */
+
+const now =
+Date.now();
+
+visitHistory.push(now);
+
+visitHistory =
+visitHistory.filter(
+    time =>
+    now - time <=
+    60 * 60 * 1000
+);
+
+totalUsers++;
+
+localStorage.setItem(
+    "najmTotalUsers",
+    totalUsers
+);
+
+localStorage.setItem(
+    "najmVisitHistory",
+    JSON.stringify(visitHistory)
+);
+
+
+/* SHOW REPORT */
+
+function updateReport(){
+
+    document.getElementById(
+        "totalUsers"
+    ).textContent =
+        totalUsers;
+
+    document.getElementById(
+        "totalSearches"
+    ).textContent =
+        totalSearches;
+
+    const currentTime =
+        Date.now();
+
+    const lastHour =
+        visitHistory.filter(
+            time =>
+            currentTime - time <=
+            60 * 60 * 1000
+        );
+
+    document.getElementById(
+        "oneHourUsers"
+    ).textContent =
+        lastHour.length;
+}
+
+updateReport();
+
+setInterval(
+    updateReport,
+    10000
+);
+
+
+/* =========================
+   NAME SEARCH
+========================= */
+
+function searchName(){
+
+    const input =
+        document.getElementById(
+            "nameInput"
+        );
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+    const resultName =
+        document.getElementById(
+            "resultName"
+        );
+
+    const name =
+        input.value.trim();
+
+
+    if(name===""){
+
+        input.focus();
+
+        return;
+    }
+
+
+    totalSearches++;
+
+    localStorage.setItem(
+        "najmTotalSearches",
+        totalSearches
+    );
+
+
+    resultName.textContent =
+        "🌟 " + name;
+
+
+    result.style.display =
+        "block";
+
+
+    result.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"center"
+
+    });
+
+
+    updateReport();
+
+    createNameCelebration();
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("nameInput")
+.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Enter"){
+
+            searchName();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CELEBRATION
+========================= */
+
+function createNameCelebration(){
+
+    const colors=[
+
+        "#00eaff",
+        "#00ffae",
+        "#ffd700",
+        "#ff4fd8",
+        "#9b5cff",
+        "#ffffff"
+
+    ];
+
+    for(let i=0;i<25;i++){
+
+        const light =
+            document.createElement("div");
+
+        light.className =
+            "click-light";
+
+        light.style.left =
+            (20+Math.random()*60)+"vw";
+
+        light.style.top =
+            (25+Math.random()*40)+"vh";
+
+        const color =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+        light.style.background =
+            color;
+
+        light.style.color =
+            color;
+
+        document.body.appendChild(
+            light
+        );
+
+        setTimeout(
+            ()=>{
+                light.remove();
+            },
+            1000
+        );
+    }
+}
+
+
+/* =========================
+   OPEN PORTAL
+========================= */
+
+let opened=false;
+
+function openPortal(){
+
+    if(opened)
+        return;
+
+    opened=true;
+
+    const door =
+        document.getElementById(
+            "door"
+        );
+
+    const landing =
+        document.getElementById(
+            "landing"
+        );
+
+    const content =
+        document.getElementById(
+            "content"
+        );
+
+
+    door.classList.add("open");
+
+    createNameCelebration();
+
+
+    setTimeout(
+        ()=>{
+
+            landing.style.opacity="0";
+
+            landing.style.transform=
+                "scale(1.05)";
+
+        },
+        700
+    );
+
+
+    setTimeout(
+        ()=>{
+
+            landing.style.display=
+                "none";
+
+            content.style.display=
+                "block";
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+        },
+        1900
+    );
+}
+
+
+/* =========================
+   CLICK LIGHT
+========================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        const colors=[
+
+            "#00eaff",
+            "#00ffae",
+            "#ffd700",
+            "#ff4fd8",
+            "#9b5cff",
+            "#ff7135",
+            "#ffffff"
+
+        ];
+
+        const color =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+        const light =
+            document.createElement("div");
+
+        light.className =
+            "click-light";
+
+        light.style.left =
+            e.clientX+"px";
+
+        light.style.top =
+            e.clientY+"px";
+
+        light.style.background =
+            color;
+
+        light.style.color =
+            color;
+
+        document.body.appendChild(
+            light
+        );
+
+        setTimeout(
+            ()=>{
+                light.remove();
+            },
+            1000
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
